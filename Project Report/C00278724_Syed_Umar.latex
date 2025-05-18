@@ -1,0 +1,2310 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage{longtable,booktabs,array}
+\usepackage{multirow}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\author{}
+\date{}
+
+\begin{document}
+
+\includegraphics[width=2.88472in,height=1.61528in]{vertopal_2383c425a5924ea2a45efcd3bd9389a7/media/image1.png}
+
+\begin{quote}
+A Detailed Study on Confidential
+\end{quote}
+
+Computing
+
+\begin{quote}
+By\\
+Syed Muhammad Umar\\
+\strut \\
+Lecturer: Lei Shi\\
+Date: 18/05/2025
+
+Table of Contents
+
+\textbf{Introduction............................................................................................................................
+3} Problem Statement: Securing Data in
+Use.........................................................................3
+\textbf{Technologies Enabling Confidential
+Computing................................................................
+3} Intel® Software Guard Extensions
+(SGX)..........................................................................
+3 Arm
+Trustzone....................................................................................................................4
+AMD Secure Encrypted Virtualization
+(SEV)......................................................................4
+\textbf{TEE on
+Cloud..........................................................................................................................5
+Real World
+Application..........................................................................................................5}
+Confidential AI and Machine
+Learning...............................................................................
+5 Privacy-Preserving
+Analytics..............................................................................................5
+Enhanced Data Protection in
+Healthcare...........................................................................
+6 Strengthened Security for Financial
+Services....................................................................
+6 \textbf{Cloud Platforms Providing Confidential Computing
+Services.......................................... 6} Common Features
+Across
+Providers.................................................................................
+6 Microsoft
+Azure..................................................................................................................
+6 Google
+Cloud.....................................................................................................................
+6 Amazon Web Services
+(AWS)............................................................................................7
+\textbf{Pros and
+Cons........................................................................................................................7}
+Advantages........................................................................................................................
+7
+Disadvantages....................................................................................................................7
+\textbf{Conclusion..............................................................................................................................7
+References..............................................................................................................................8}
+\end{quote}
+
+1
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 26\tabcolsep) * \real{0.0714}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 26\tabcolsep) * \real{0.0714}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 26\tabcolsep) * \real{0.0714}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 26\tabcolsep) * \real{0.0714}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 26\tabcolsep) * \real{0.0714}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 26\tabcolsep) * \real{0.0714}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 26\tabcolsep) * \real{0.0714}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 26\tabcolsep) * \real{0.0714}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 26\tabcolsep) * \real{0.0714}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 26\tabcolsep) * \real{0.0714}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 26\tabcolsep) * \real{0.0714}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 26\tabcolsep) * \real{0.0714}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 26\tabcolsep) * \real{0.0714}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 26\tabcolsep) * \real{0.0714}}@{}}
+\toprule()
+\multicolumn{7}{@{}>{\raggedright\arraybackslash}p{(\columnwidth - 26\tabcolsep) * \real{0.5000} + 12\tabcolsep}}{%
+\multirow{5}{*}{\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+Introduction
+
+With rapid advancements in Artificial Intelligence (AI) and Machine
+Learning (ML), organizations now generate and process vast volumes of
+data every second. As the saying goes, ``With great power comes great
+responsibility,'' and safeguarding this data has become a critical
+obligation.
+
+In computing, data typically exists in three
+\end{quote}
+\end{minipage}}} &
+\multicolumn{2}{>{\raggedright\arraybackslash}p{(\columnwidth - 26\tabcolsep) * \real{0.1429} + 2\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+Computing
+\end{quote}
+\end{minipage}} & \begin{minipage}[b]{\linewidth}\raggedright
+has
+\end{minipage} &
+\multicolumn{2}{>{\raggedright\arraybackslash}p{(\columnwidth - 26\tabcolsep) * \real{0.1429} + 2\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+emerged
+\end{quote}
+\end{minipage}} & \begin{minipage}[b]{\linewidth}\raggedright
+as
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+a
+\end{quote}
+\end{minipage} \\
+& & & & & & &
+\multicolumn{7}{>{\raggedright\arraybackslash}p{(\columnwidth - 26\tabcolsep) * \real{0.5000} + 12\tabcolsep}@{}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+transformative solution. It safeguards data in use by performing
+computations within
+\end{quote}
+\end{minipage}} \\
+& & & & & & & \begin{minipage}[b]{\linewidth}\raggedright
+a
+\end{minipage} &
+\multicolumn{2}{>{\raggedright\arraybackslash}p{(\columnwidth - 26\tabcolsep) * \real{0.1429} + 2\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+hardware-based,
+\end{quote}
+\end{minipage}} &
+\multicolumn{2}{>{\raggedright\arraybackslash}p{(\columnwidth - 26\tabcolsep) * \real{0.1429} + 2\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+attested
+\end{quote}
+\end{minipage}} &
+\multicolumn{2}{>{\raggedright\arraybackslash}p{(\columnwidth - 26\tabcolsep) * \real{0.1429} + 2\tabcolsep}@{}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+Trusted
+\end{quote}
+\end{minipage}} \\
+& & & & & & &
+\multicolumn{7}{>{\raggedright\arraybackslash}p{(\columnwidth - 26\tabcolsep) * \real{0.5000} + 12\tabcolsep}@{}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+Execution Environment (TEE).
+
+These secure and isolated environments ensure that applications and data
+remain shielded from unauthorized access or tampering during runtime. By
+minimizing exposure during processing, Confidential Computing
+significantly enhances data
+\end{quote}
+\end{minipage}} \\
+& & & & & & &
+\multicolumn{3}{>{\raggedright\arraybackslash}p{(\columnwidth - 26\tabcolsep) * \real{0.2143} + 4\tabcolsep}}{%
+\multirow{2}{*}{\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+security---especially
+\end{quote}
+\end{minipage}}} &
+\multirow{2}{*}{\begin{minipage}[b]{\linewidth}\raggedright
+for
+\end{minipage}} &
+\multicolumn{3}{>{\raggedright\arraybackslash}p{(\columnwidth - 26\tabcolsep) * \real{0.2143} + 4\tabcolsep}@{}}{%
+\multirow{2}{*}{\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+organizations
+\end{quote}
+\end{minipage}}} \\
+\multirow{2}{*}{\begin{minipage}[b]{\linewidth}\raggedright
+states
+\end{minipage}} &
+\multirow{2}{*}{\begin{minipage}[b]{\linewidth}\raggedright
+{[}1{]}:
+\end{minipage}} &
+\multirow{2}{*}{\begin{minipage}[b]{\linewidth}\raggedright
+in
+\end{minipage}} &
+\multicolumn{2}{>{\raggedright\arraybackslash}p{(\columnwidth - 26\tabcolsep) * \real{0.1429} + 2\tabcolsep}}{%
+\multirow{2}{*}{\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+transit
+\end{quote}
+\end{minipage}}} &
+\multirow{2}{*}{\begin{minipage}[b]{\linewidth}\raggedright
+(while
+\end{minipage}} &
+\multirow{2}{*}{\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+being
+\end{quote}
+\end{minipage}} \\
+& & & & & & &
+\multicolumn{2}{>{\raggedright\arraybackslash}p{(\columnwidth - 26\tabcolsep) * \real{0.1429} + 2\tabcolsep}}{%
+\multirow{2}{*}{\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+managing
+\end{quote}
+\end{minipage}}} &
+\multicolumn{2}{>{\raggedright\arraybackslash}p{(\columnwidth - 26\tabcolsep) * \real{0.1429} + 2\tabcolsep}}{%
+\multirow{2}{*}{\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+sensitive,
+\end{quote}
+\end{minipage}}} &
+\multicolumn{2}{>{\raggedright\arraybackslash}p{(\columnwidth - 26\tabcolsep) * \real{0.1429} + 2\tabcolsep}}{%
+\multirow{2}{*}{\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+regulated,
+\end{quote}
+\end{minipage}}} &
+\multirow{2}{*}{\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+or
+\end{quote}
+\end{minipage}} \\
+\multicolumn{7}{@{}>{\raggedright\arraybackslash}p{(\columnwidth - 26\tabcolsep) * \real{0.5000} + 12\tabcolsep}}{%
+\multirow{2}{*}{\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+transmitted across networks), at rest
+\end{quote}
+\end{minipage}}} \\
+& & & & & & &
+\multicolumn{7}{>{\raggedright\arraybackslash}p{(\columnwidth - 26\tabcolsep) * \real{0.5000} + 12\tabcolsep}@{}}{%
+\multirow{3}{*}{\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+mission-critical information in the cloud.
+
+Technologies Enabling Confidential\\
+Computing
+\end{quote}\strut
+\end{minipage}}} \\
+\begin{minipage}[b]{\linewidth}\raggedright
+(when
+\end{minipage} &
+\multicolumn{2}{>{\raggedright\arraybackslash}p{(\columnwidth - 26\tabcolsep) * \real{0.1429} + 2\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+stored
+\end{minipage}} & \begin{minipage}[b]{\linewidth}\raggedright
+on
+\end{minipage} &
+\multicolumn{3}{>{\raggedright\arraybackslash}p{(\columnwidth - 26\tabcolsep) * \real{0.2143} + 4\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+physical or cloud
+\end{quote}
+\end{minipage}} \\
+\multicolumn{7}{@{}>{\raggedright\arraybackslash}p{(\columnwidth - 26\tabcolsep) * \real{0.5000} + 12\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+storage), and in use (while actively being processed by CPUs and
+memory).
+
+Current encryption technologies effectively protect data at rest and in
+transit. However, data in use remains vulnerable, as it must be
+decrypted during processing
+\end{quote}
+\end{minipage}} \\
+\midrule()
+\endhead
+\bottomrule()
+\end{longtable}
+
+\begin{quote}
+--- exposing it to potential threats such as
+\end{quote}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 32\tabcolsep) * \real{0.0588}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 32\tabcolsep) * \real{0.0588}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 32\tabcolsep) * \real{0.0588}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 32\tabcolsep) * \real{0.0588}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 32\tabcolsep) * \real{0.0588}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 32\tabcolsep) * \real{0.0588}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 32\tabcolsep) * \real{0.0588}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 32\tabcolsep) * \real{0.0588}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 32\tabcolsep) * \real{0.0588}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 32\tabcolsep) * \real{0.0588}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 32\tabcolsep) * \real{0.0588}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 32\tabcolsep) * \real{0.0588}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 32\tabcolsep) * \real{0.0588}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 32\tabcolsep) * \real{0.0588}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 32\tabcolsep) * \real{0.0588}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 32\tabcolsep) * \real{0.0588}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 32\tabcolsep) * \real{0.0588}}@{}}
+\toprule()
+\multicolumn{2}{@{}>{\raggedright\arraybackslash}p{(\columnwidth - 32\tabcolsep) * \real{0.1176} + 2\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+side-channel
+\end{minipage}} &
+\multicolumn{4}{>{\raggedright\arraybackslash}p{(\columnwidth - 32\tabcolsep) * \real{0.2353} + 6\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+attacks
+\end{minipage}} &
+\multicolumn{2}{>{\raggedright\arraybackslash}p{(\columnwidth - 32\tabcolsep) * \real{0.1176} + 2\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+and
+\end{minipage}} &
+\multicolumn{2}{>{\raggedright\arraybackslash}p{(\columnwidth - 32\tabcolsep) * \real{0.1176} + 2\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+malicious
+\end{quote}
+\end{minipage}} &
+\multicolumn{2}{>{\raggedright\arraybackslash}p{(\columnwidth - 32\tabcolsep) * \real{0.1176} + 2\tabcolsep}}{%
+\multirow{2}{*}{\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+Intel®
+\end{quote}
+\end{minipage}}} &
+\multicolumn{2}{>{\raggedright\arraybackslash}p{(\columnwidth - 32\tabcolsep) * \real{0.1176} + 2\tabcolsep}}{%
+\multirow{2}{*}{\begin{minipage}[b]{\linewidth}\raggedright
+Software
+\end{minipage}}} &
+\multicolumn{3}{>{\raggedright\arraybackslash}p{(\columnwidth - 32\tabcolsep) * \real{0.1765} + 4\tabcolsep}@{}}{%
+\multirow{2}{*}{\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+Guard
+\end{quote}
+\end{minipage}}} \\
+\multicolumn{10}{@{}>{\raggedright\arraybackslash}p{(\columnwidth - 32\tabcolsep) * \real{0.5882} + 18\tabcolsep}}{%
+\multirow{3}{*}{\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+insiders. This creates a significant security gap in modern computing
+environments, especially in public and multi-tenant cloud
+infrastructures.
+\end{quote}
+\end{minipage}}} \\
+& & & & & & & & & &
+\multicolumn{7}{>{\raggedright\arraybackslash}p{(\columnwidth - 32\tabcolsep) * \real{0.4118} + 12\tabcolsep}@{}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+Extensions (SGX)\\
+Intel® SGX is one of the foundational
+\end{quote}\strut
+\end{minipage}} \\
+& & & & & & & & & &
+\multicolumn{2}{>{\raggedright\arraybackslash}p{(\columnwidth - 32\tabcolsep) * \real{0.1176} + 2\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+technologies
+\end{quote}
+\end{minipage}} &
+\multicolumn{2}{>{\raggedright\arraybackslash}p{(\columnwidth - 32\tabcolsep) * \real{0.1176} + 2\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+enabling
+\end{minipage}} &
+\multicolumn{3}{>{\raggedright\arraybackslash}p{(\columnwidth - 32\tabcolsep) * \real{0.1765} + 4\tabcolsep}@{}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+Confidential
+\end{quote}
+\end{minipage}} \\
+\midrule()
+\endhead
+\multicolumn{5}{@{}>{\raggedright\arraybackslash}p{(\columnwidth - 32\tabcolsep) * \real{0.2941} + 8\tabcolsep}}{%
+\multirow{2}{*}{\begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+Problem
+\end{quote}
+\end{minipage}}} &
+\multicolumn{5}{>{\raggedright\arraybackslash}p{(\columnwidth - 32\tabcolsep) * \real{0.2941} + 8\tabcolsep}}{%
+\multirow{2}{*}{Statement:}} &
+\multicolumn{2}{>{\raggedright\arraybackslash}p{(\columnwidth - 32\tabcolsep) * \real{0.1176} + 2\tabcolsep}}{%
+\begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+Computing.{[}2{]}
+\end{quote}
+\end{minipage}} & It & allows &
+\multicolumn{3}{>{\raggedright\arraybackslash}p{(\columnwidth - 32\tabcolsep) * \real{0.1765} + 4\tabcolsep}@{}}{%
+\begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+application
+\end{quote}
+\end{minipage}} \\
+& & & & & & & & & &
+\multicolumn{7}{>{\raggedright\arraybackslash}p{(\columnwidth - 32\tabcolsep) * \real{0.4118} + 12\tabcolsep}@{}}{%
+\begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+developers to protect sensitive code and
+\end{quote}
+\end{minipage}} \\
+\multicolumn{10}{@{}>{\raggedright\arraybackslash}p{(\columnwidth - 32\tabcolsep) * \real{0.5882} + 18\tabcolsep}}{%
+\multirow{2}{*}{\begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+Securing Data in Use
+
+Traditional security measures fail to fully protect data while it is
+being processed in memory. Unlike data at rest or in transit, which can
+remain encrypted, data in use
+\end{quote}
+\end{minipage}}} & data & \begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+from
+\end{quote}
+\end{minipage} &
+\multicolumn{2}{>{\raggedright\arraybackslash}p{(\columnwidth - 32\tabcolsep) * \real{0.1176} + 2\tabcolsep}}{%
+unauthorized} &
+\multicolumn{2}{>{\raggedright\arraybackslash}p{(\columnwidth - 32\tabcolsep) * \real{0.1176} + 2\tabcolsep}}{%
+access} & \begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+or
+\end{quote}
+\end{minipage} \\
+& & & & & & & & & &
+\multicolumn{7}{>{\raggedright\arraybackslash}p{(\columnwidth - 32\tabcolsep) * \real{0.4118} + 12\tabcolsep}@{}}{%
+\multirow{2}{*}{\begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+modification by using secure, isolated regions of memory called
+enclaves.
+
+These enclaves ensure that even if the operating system, BIOS, virtual
+machine monitor, or drivers are compromised, the data inside remains
+secure. SGX relies on
+\end{quote}
+\end{minipage}}} \\
+\multirow{2}{*}{typically} &
+\multicolumn{3}{>{\raggedright\arraybackslash}p{(\columnwidth - 32\tabcolsep) * \real{0.1765} + 4\tabcolsep}}{%
+\multirow{2}{*}{must}} &
+\multicolumn{2}{>{\raggedright\arraybackslash}p{(\columnwidth - 32\tabcolsep) * \real{0.1176} + 2\tabcolsep}}{%
+\multirow{2}{*}{be}} &
+\multicolumn{3}{>{\raggedright\arraybackslash}p{(\columnwidth - 32\tabcolsep) * \real{0.1765} + 4\tabcolsep}}{%
+\multirow{2}{*}{\begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+decrypted
+\end{quote}
+\end{minipage}}} & \multirow{2}{*}{for} \\
+& & & & & & & & & &
+\multicolumn{3}{>{\raggedright\arraybackslash}p{(\columnwidth - 32\tabcolsep) * \real{0.1765} + 4\tabcolsep}}{%
+\multirow{2}{*}{hardware-based}} &
+\multicolumn{2}{>{\raggedright\arraybackslash}p{(\columnwidth - 32\tabcolsep) * \real{0.1176} + 2\tabcolsep}}{%
+\multirow{2}{*}{\begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+memory
+\end{quote}
+\end{minipage}}} &
+\multicolumn{2}{>{\raggedright\arraybackslash}p{(\columnwidth - 32\tabcolsep) * \real{0.1176} + 2\tabcolsep}@{}}{%
+\multirow{2}{*}{\begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+protection
+\end{quote}
+\end{minipage}}} \\
+\multicolumn{5}{@{}>{\raggedright\arraybackslash}p{(\columnwidth - 32\tabcolsep) * \real{0.2941} + 8\tabcolsep}}{%
+\multirow{2}{*}{\begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+operations---making
+\end{quote}
+\end{minipage}}} &
+\multicolumn{2}{>{\raggedright\arraybackslash}p{(\columnwidth - 32\tabcolsep) * \real{0.1176} + 2\tabcolsep}}{%
+\multirow{2}{*}{\begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+it
+\end{quote}
+\end{minipage}}} &
+\multicolumn{2}{>{\raggedright\arraybackslash}p{(\columnwidth - 32\tabcolsep) * \real{0.1176} + 2\tabcolsep}}{%
+\multirow{2}{*}{\begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+visible
+\end{quote}
+\end{minipage}}} &
+\multirow{2}{*}{\begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+and
+\end{quote}
+\end{minipage}} \\
+& & & & & & & & & &
+\multicolumn{7}{>{\raggedright\arraybackslash}p{(\columnwidth - 32\tabcolsep) * \real{0.4118} + 12\tabcolsep}@{}}{%
+\multirow{6}{*}{\begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+mechanisms to guard against threats such as memory snooping, tampering,
+and cold boot attacks.
+
+The Intel SGX SDK (available for Linux OS) provides developers with a
+set of APIs, libraries, tools, and sample code to build secure
+applications using C/C++. Applications can utilize SGX instructions
+introduced with Intel's 6th generation Core™ processors or newer.
+
+Key advantages of Intel SGX include:
+\end{quote}
+\end{minipage}}} \\
+\multicolumn{10}{@{}>{\raggedright\arraybackslash}p{(\columnwidth - 32\tabcolsep) * \real{0.5882} + 18\tabcolsep}}{%
+\begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+exploitable.
+
+The rise of cloud computing, multi-tenant
+\end{quote}
+\end{minipage}} \\
+\multicolumn{3}{@{}>{\raggedright\arraybackslash}p{(\columnwidth - 32\tabcolsep) * \real{0.1765} + 4\tabcolsep}}{%
+environments,} &
+\multicolumn{2}{>{\raggedright\arraybackslash}p{(\columnwidth - 32\tabcolsep) * \real{0.1176} + 2\tabcolsep}}{%
+and} &
+\multicolumn{4}{>{\raggedright\arraybackslash}p{(\columnwidth - 32\tabcolsep) * \real{0.2353} + 6\tabcolsep}}{%
+remote} & \begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+data
+\end{quote}
+\end{minipage} \\
+\multicolumn{10}{@{}>{\raggedright\arraybackslash}p{(\columnwidth - 32\tabcolsep) * \real{0.5882} + 18\tabcolsep}}{%
+\begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+processing amplifies this vulnerability.
+\end{quote}
+\end{minipage}} \\
+These &
+\multicolumn{4}{>{\raggedright\arraybackslash}p{(\columnwidth - 32\tabcolsep) * \real{0.2353} + 6\tabcolsep}}{%
+\begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+challenges
+\end{quote}
+\end{minipage}} &
+\multicolumn{3}{>{\raggedright\arraybackslash}p{(\columnwidth - 32\tabcolsep) * \real{0.1765} + 4\tabcolsep}}{%
+demand} & a & \begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+new
+\end{quote}
+\end{minipage} \\
+\multicolumn{10}{@{}>{\raggedright\arraybackslash}p{(\columnwidth - 32\tabcolsep) * \real{0.5882} + 18\tabcolsep}}{%
+\begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+approach that ensures data remains protected even during computation.
+
+Confidential Computing: A New Paradigm To address the challenge of
+securing data during active processing, Confidential
+\end{quote}
+\end{minipage}} \\
+\bottomrule()
+\end{longtable}
+
+2
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}@{}}
+\toprule()
+\multicolumn{3}{@{}>{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.7500} + 4\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+●\hspace{0pt} Secure enclave execution isolated from the rest of the
+system
+\end{quote}
+\end{minipage}} &
+\multirow{3}{*}{\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+By providing a robust framework for secure execution, Arm TrustZone
+plays a pivotal role in enhancing the security posture of modern
+computing systems, particularly in scenarios where protecting data in
+use is critical.
+\end{quote}
+\end{minipage}} \\
+\begin{minipage}[b]{\linewidth}\raggedright
+●\hspace{0pt} Protection
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+against
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+privileged
+\end{quote}
+\end{minipage} \\
+\multicolumn{3}{@{}>{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.7500} + 4\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+system-level attacks\\
+●\hspace{0pt} Minimal trusted computing base (TCB)
+\end{quote}\strut
+\end{minipage}} \\
+\midrule()
+\endhead
+\bottomrule()
+\end{longtable}
+
+\begin{quote}
+●\hspace{0pt} Support for remote attestation,
+\end{quote}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1250}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1250}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1250}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1250}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1250}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1250}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1250}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1250}}@{}}
+\toprule()
+\multicolumn{2}{@{}>{\raggedright\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.2500} + 2\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+allowing
+\end{minipage}} &
+\multicolumn{2}{>{\raggedright\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.2500} + 2\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+validation
+\end{minipage}} & \begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+of
+\end{quote}
+\end{minipage} &
+\multicolumn{2}{>{\raggedright\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.2500} + 2\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+enclave
+\end{quote}
+\end{minipage}} &
+\multirow{7}{*}{\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+\includegraphics[width=2.88611in,height=2.45833in]{vertopal_2383c425a5924ea2a45efcd3bd9389a7/media/image2.png}
+\end{quote}
+\end{minipage}} \\
+\multicolumn{7}{@{}>{\raggedright\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.8750} + 12\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+integrity
+\end{minipage}} \\
+\multicolumn{3}{@{}>{\raggedright\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.3750} + 4\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+●\hspace{0pt} Compatibility
+\end{minipage}} & \begin{minipage}[b]{\linewidth}\raggedright
+with
+\end{minipage} &
+\multicolumn{3}{>{\raggedright\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.3750} + 4\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+standard
+\end{minipage}} \\
+\multicolumn{7}{@{}>{\raggedright\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.8750} + 12\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+development workflows
+
+\begin{quote}
+Arm Trustzone\\
+Arm TrustZone is a hardware-based
+
+security extension integrated into Arm\textquotesingle s
+\end{quote}\strut
+\end{minipage}} \\
+\begin{minipage}[b]{\linewidth}\raggedright
+Cortex-A
+\end{minipage} &
+\multicolumn{2}{>{\raggedright\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.2500} + 2\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+processors,
+\end{quote}
+\end{minipage}} &
+\multicolumn{3}{>{\raggedright\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.3750} + 4\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+designed
+\end{quote}
+\end{minipage}} & \begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+to
+\end{quote}
+\end{minipage} \\
+\begin{minipage}[b]{\linewidth}\raggedright
+establish
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+a
+\end{minipage} &
+\multicolumn{2}{>{\raggedright\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.2500} + 2\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+Trusted
+\end{minipage}} &
+\multicolumn{3}{>{\raggedright\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.3750} + 4\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+Execution
+\end{minipage}} \\
+\multicolumn{7}{@{}>{\raggedright\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.8750} + 12\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+Environment (TEE). This {[}3{]} technology
+\end{quote}
+\end{minipage}} \\
+\midrule()
+\endhead
+\bottomrule()
+\end{longtable}
+
+\begin{quote}
+partitions the system into two distinct
+\end{quote}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 44\tabcolsep) * \real{0.0435}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 44\tabcolsep) * \real{0.0435}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 44\tabcolsep) * \real{0.0435}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 44\tabcolsep) * \real{0.0435}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 44\tabcolsep) * \real{0.0435}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 44\tabcolsep) * \real{0.0435}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 44\tabcolsep) * \real{0.0435}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 44\tabcolsep) * \real{0.0435}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 44\tabcolsep) * \real{0.0435}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 44\tabcolsep) * \real{0.0435}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 44\tabcolsep) * \real{0.0435}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 44\tabcolsep) * \real{0.0435}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 44\tabcolsep) * \real{0.0435}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 44\tabcolsep) * \real{0.0435}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 44\tabcolsep) * \real{0.0435}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 44\tabcolsep) * \real{0.0435}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 44\tabcolsep) * \real{0.0435}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 44\tabcolsep) * \real{0.0435}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 44\tabcolsep) * \real{0.0435}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 44\tabcolsep) * \real{0.0435}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 44\tabcolsep) * \real{0.0435}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 44\tabcolsep) * \real{0.0435}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 44\tabcolsep) * \real{0.0435}}@{}}
+\toprule()
+\multicolumn{9}{@{}>{\raggedright\arraybackslash}p{(\columnwidth - 44\tabcolsep) * \real{0.3913} + 16\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+worlds: the Secure World and the Normal
+\end{quote}
+\end{minipage}} &
+\multicolumn{2}{>{\raggedright\arraybackslash}p{(\columnwidth - 44\tabcolsep) * \real{0.0870} + 2\tabcolsep}}{%
+\multirow{2}{*}{\begin{minipage}[b]{\linewidth}\raggedright
+AMD
+\end{minipage}}} &
+\multicolumn{6}{>{\raggedright\arraybackslash}p{(\columnwidth - 44\tabcolsep) * \real{0.2609} + 10\tabcolsep}}{%
+\multirow{2}{*}{\begin{minipage}[b]{\linewidth}\raggedright
+Secure
+\end{minipage}}} &
+\multicolumn{6}{>{\raggedright\arraybackslash}p{(\columnwidth - 44\tabcolsep) * \real{0.2609} + 10\tabcolsep}@{}}{%
+\multirow{2}{*}{\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+Encrypted
+\end{quote}
+\end{minipage}}} \\
+\multirow{2}{*}{\begin{minipage}[b]{\linewidth}\raggedright
+World.
+\end{minipage}} &
+\multirow{2}{*}{\begin{minipage}[b]{\linewidth}\raggedright
+The
+\end{minipage}} &
+\multicolumn{3}{>{\raggedright\arraybackslash}p{(\columnwidth - 44\tabcolsep) * \real{0.1304} + 4\tabcolsep}}{%
+\multirow{2}{*}{\begin{minipage}[b]{\linewidth}\raggedright
+Secure
+\end{minipage}}} &
+\multicolumn{3}{>{\raggedright\arraybackslash}p{(\columnwidth - 44\tabcolsep) * \real{0.1304} + 4\tabcolsep}}{%
+\multirow{2}{*}{\begin{minipage}[b]{\linewidth}\raggedright
+World
+\end{minipage}}} &
+\multirow{2}{*}{\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+handles
+\end{quote}
+\end{minipage}} \\
+& & & & & & & & &
+\multicolumn{14}{>{\raggedright\arraybackslash}p{(\columnwidth - 44\tabcolsep) * \real{0.6087} + 26\tabcolsep}@{}}{%
+\multirow{2}{*}{\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+Virtualization (SEV)
+\end{quote}
+\end{minipage}}} \\
+\multicolumn{9}{@{}>{\raggedright\arraybackslash}p{(\columnwidth - 44\tabcolsep) * \real{0.3913} + 16\tabcolsep}}{%
+\multirow{9}{*}{\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+sensitive operations such as trusted boot processes, cryptographic
+functions, and digital rights management (DRM), while the Normal World
+runs the standard operating system and applications.
+
+A key feature of TrustZone is its ability to isolate sensitive code and
+data from the rest of the system, ensuring that even if the Normal World
+is compromised, the Secure World remains protected. This
+\end{quote}
+\end{minipage}}} \\
+& & & & & & & & & \begin{minipage}[b]{\linewidth}\raggedright
+AMD
+\end{minipage} &
+\multicolumn{4}{>{\raggedright\arraybackslash}p{(\columnwidth - 44\tabcolsep) * \real{0.1739} + 6\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+Secure
+\end{minipage}} &
+\multicolumn{5}{>{\raggedright\arraybackslash}p{(\columnwidth - 44\tabcolsep) * \real{0.2174} + 8\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+Encrypted
+\end{minipage}} &
+\multicolumn{4}{>{\raggedright\arraybackslash}p{(\columnwidth - 44\tabcolsep) * \real{0.1739} + 6\tabcolsep}@{}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+Virtualization
+\end{quote}
+\end{minipage}} \\
+& & & & & & & & &
+\multicolumn{14}{>{\raggedright\arraybackslash}p{(\columnwidth - 44\tabcolsep) * \real{0.6087} + 26\tabcolsep}@{}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+(SEV) {[}4{]} is a hardware-based security
+\end{quote}
+\end{minipage}} \\
+& & & & & & & & &
+\multicolumn{2}{>{\raggedright\arraybackslash}p{(\columnwidth - 44\tabcolsep) * \real{0.0870} + 2\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+feature
+\end{minipage}} &
+\multicolumn{4}{>{\raggedright\arraybackslash}p{(\columnwidth - 44\tabcolsep) * \real{0.1739} + 6\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+designed
+\end{minipage}} &
+\multicolumn{2}{>{\raggedright\arraybackslash}p{(\columnwidth - 44\tabcolsep) * \real{0.0870} + 2\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+to
+\end{minipage}} &
+\multicolumn{4}{>{\raggedright\arraybackslash}p{(\columnwidth - 44\tabcolsep) * \real{0.1739} + 6\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+protect
+\end{quote}
+\end{minipage}} &
+\multicolumn{2}{>{\raggedright\arraybackslash}p{(\columnwidth - 44\tabcolsep) * \real{0.0870} + 2\tabcolsep}@{}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+virtual
+\end{quote}
+\end{minipage}} \\
+& & & & & & & & &
+\multicolumn{2}{>{\raggedright\arraybackslash}p{(\columnwidth - 44\tabcolsep) * \real{0.0870} + 2\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+machines
+\end{minipage}} &
+\multicolumn{4}{>{\raggedright\arraybackslash}p{(\columnwidth - 44\tabcolsep) * \real{0.1739} + 6\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+(VMs)
+\end{quote}
+\end{minipage}} &
+\multicolumn{2}{>{\raggedright\arraybackslash}p{(\columnwidth - 44\tabcolsep) * \real{0.0870} + 2\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+by
+\end{quote}
+\end{minipage}} &
+\multicolumn{6}{>{\raggedright\arraybackslash}p{(\columnwidth - 44\tabcolsep) * \real{0.2609} + 10\tabcolsep}@{}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+encrypting their
+\end{minipage}} \\
+& & & & & & & & &
+\multicolumn{14}{>{\raggedright\arraybackslash}p{(\columnwidth - 44\tabcolsep) * \real{0.6087} + 26\tabcolsep}@{}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+memory, ensuring that data remains confidential even in multi-tenant
+cloud
+\end{quote}
+\end{minipage}} \\
+& & & & & & & & &
+\multicolumn{4}{>{\raggedright\arraybackslash}p{(\columnwidth - 44\tabcolsep) * \real{0.1739} + 6\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+environments.
+\end{quote}
+\end{minipage}} &
+\multicolumn{10}{>{\raggedright\arraybackslash}p{(\columnwidth - 44\tabcolsep) * \real{0.4348} + 18\tabcolsep}@{}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+By integrating memory
+\end{quote}
+\end{minipage}} \\
+& & & & & & & & &
+\multicolumn{3}{>{\raggedright\arraybackslash}p{(\columnwidth - 44\tabcolsep) * \real{0.1304} + 4\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+encryption
+\end{quote}
+\end{minipage}} &
+\multicolumn{6}{>{\raggedright\arraybackslash}p{(\columnwidth - 44\tabcolsep) * \real{0.2609} + 10\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+capabilities
+\end{minipage}} &
+\multicolumn{3}{>{\raggedright\arraybackslash}p{(\columnwidth - 44\tabcolsep) * \real{0.1304} + 4\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+with
+\end{minipage}} &
+\multicolumn{2}{>{\raggedright\arraybackslash}p{(\columnwidth - 44\tabcolsep) * \real{0.0870} + 2\tabcolsep}@{}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+AMD\textquotesingle s
+\end{quote}
+\end{minipage}} \\
+& & & & & & & & &
+\multicolumn{14}{>{\raggedright\arraybackslash}p{(\columnwidth - 44\tabcolsep) * \real{0.6087} + 26\tabcolsep}@{}}{%
+\multirow{8}{*}{\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+virtualization architecture, SEV allows each VM\textquotesingle s memory
+to be encrypted with a unique key managed by the AMD Secure Processor.
+This isolation ensures that even if the hypervisor or other VMs are
+compromised, the data within a protected VM remains secure\\
+Key Features:\\
+●\hspace{0pt} Memory Encryption: Each VM\textquotesingle s memory is
+encrypted using a
+\end{quote}\strut
+\end{minipage}}} \\
+\begin{minipage}[b]{\linewidth}\raggedright
+isolation
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+is
+\end{minipage} &
+\multicolumn{3}{>{\raggedright\arraybackslash}p{(\columnwidth - 44\tabcolsep) * \real{0.1304} + 4\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+enforced
+\end{quote}
+\end{minipage}} &
+\multicolumn{2}{>{\raggedright\arraybackslash}p{(\columnwidth - 44\tabcolsep) * \real{0.0870} + 2\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+by
+\end{minipage}} &
+\multicolumn{2}{>{\raggedright\arraybackslash}p{(\columnwidth - 44\tabcolsep) * \real{0.0870} + 2\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+hardware,
+\end{quote}
+\end{minipage}} \\
+\multicolumn{9}{@{}>{\raggedright\arraybackslash}p{(\columnwidth - 44\tabcolsep) * \real{0.3913} + 16\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+preventing unauthorized access to secure resources. The transition
+between these worlds is managed by a component known as the Secure
+Monitor, which controls the
+\end{quote}
+\end{minipage}} \\
+\begin{minipage}[b]{\linewidth}\raggedright
+context
+\end{minipage} &
+\multicolumn{8}{>{\raggedright\arraybackslash}p{(\columnwidth - 44\tabcolsep) * \real{0.3478} + 14\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+switching and maintains the
+\end{quote}
+\end{minipage}} \\
+\multicolumn{9}{@{}>{\raggedright\arraybackslash}p{(\columnwidth - 44\tabcolsep) * \real{0.3913} + 16\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+integrity of the Secure World.
+\end{quote}
+\end{minipage}} \\
+\multicolumn{2}{@{}>{\raggedright\arraybackslash}p{(\columnwidth - 44\tabcolsep) * \real{0.0870} + 2\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+TrustZone\textquotesingle s
+\end{minipage}} &
+\multicolumn{4}{>{\raggedright\arraybackslash}p{(\columnwidth - 44\tabcolsep) * \real{0.1739} + 6\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+flexibility
+\end{minipage}} &
+\multicolumn{3}{>{\raggedright\arraybackslash}p{(\columnwidth - 44\tabcolsep) * \real{0.1304} + 4\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+allows
+\end{minipage}} \\
+\multicolumn{9}{@{}>{\raggedright\arraybackslash}p{(\columnwidth - 44\tabcolsep) * \real{0.3913} + 16\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+system-on-chip (SoC) designers to tailor
+\end{quote}
+\end{minipage}} \\
+\multirow{2}{*}{\begin{minipage}[b]{\linewidth}\raggedright
+security
+\end{minipage}} &
+\multicolumn{5}{>{\raggedright\arraybackslash}p{(\columnwidth - 44\tabcolsep) * \real{0.2174} + 8\tabcolsep}}{%
+\multirow{2}{*}{\begin{minipage}[b]{\linewidth}\raggedright
+implementations
+\end{minipage}}} &
+\multicolumn{2}{>{\raggedright\arraybackslash}p{(\columnwidth - 44\tabcolsep) * \real{0.0870} + 2\tabcolsep}}{%
+\multirow{2}{*}{\begin{minipage}[b]{\linewidth}\raggedright
+to
+\end{minipage}}} &
+\multirow{2}{*}{\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+specific
+\end{quote}
+\end{minipage}} \\
+& & & & & & & & &
+\multicolumn{6}{>{\raggedright\arraybackslash}p{(\columnwidth - 44\tabcolsep) * \real{0.2609} + 10\tabcolsep}}{%
+\multirow{2}{*}{\begin{minipage}[b]{\linewidth}\raggedright
+unique
+\end{minipage}}} &
+\multicolumn{2}{>{\raggedright\arraybackslash}p{(\columnwidth - 44\tabcolsep) * \real{0.0870} + 2\tabcolsep}}{%
+\multirow{2}{*}{\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+key,
+\end{quote}
+\end{minipage}}} &
+\multicolumn{6}{>{\raggedright\arraybackslash}p{(\columnwidth - 44\tabcolsep) * \real{0.2609} + 10\tabcolsep}@{}}{%
+\multirow{2}{*}{\begin{minipage}[b]{\linewidth}\raggedright
+preventing
+\end{minipage}}} \\
+\multirow{2}{*}{\begin{minipage}[b]{\linewidth}\raggedright
+needs,
+\end{minipage}} &
+\multicolumn{3}{>{\raggedright\arraybackslash}p{(\columnwidth - 44\tabcolsep) * \real{0.1304} + 4\tabcolsep}}{%
+\multirow{2}{*}{\begin{minipage}[b]{\linewidth}\raggedright
+making
+\end{minipage}}} &
+\multirow{2}{*}{\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+it
+\end{quote}
+\end{minipage}} &
+\multirow{2}{*}{\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+a
+\end{quote}
+\end{minipage}} &
+\multicolumn{3}{>{\raggedright\arraybackslash}p{(\columnwidth - 44\tabcolsep) * \real{0.1304} + 4\tabcolsep}}{%
+\multirow{2}{*}{\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+foundational
+\end{quote}
+\end{minipage}}} \\
+& & & & & & & & &
+\multicolumn{14}{>{\raggedright\arraybackslash}p{(\columnwidth - 44\tabcolsep) * \real{0.6087} + 26\tabcolsep}@{}}{%
+\multirow{3}{*}{\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+unauthorized access from other VMs or the hypervisor.
+\end{quote}
+\end{minipage}}} \\
+\multicolumn{2}{@{}>{\raggedright\arraybackslash}p{(\columnwidth - 44\tabcolsep) * \real{0.0870} + 2\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+technology
+\end{minipage}} & \begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+for
+\end{quote}
+\end{minipage} &
+\multicolumn{3}{>{\raggedright\arraybackslash}p{(\columnwidth - 44\tabcolsep) * \real{0.1304} + 4\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+various
+\end{quote}
+\end{minipage}} &
+\multicolumn{3}{>{\raggedright\arraybackslash}p{(\columnwidth - 44\tabcolsep) * \real{0.1304} + 4\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+applications,
+\end{quote}
+\end{minipage}} \\
+\multicolumn{9}{@{}>{\raggedright\arraybackslash}p{(\columnwidth - 44\tabcolsep) * \real{0.3913} + 16\tabcolsep}}{%
+\multirow{4}{*}{\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+including mobile device management, secure payments, and confidential
+data processing in cloud environments.
+\end{quote}
+\end{minipage}}} \\
+& & & & & & & & &
+\multicolumn{7}{>{\raggedright\arraybackslash}p{(\columnwidth - 44\tabcolsep) * \real{0.3043} + 12\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+●\hspace{0pt} Transparent
+\end{minipage}} &
+\multicolumn{6}{>{\raggedright\arraybackslash}p{(\columnwidth - 44\tabcolsep) * \real{0.2609} + 10\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+Operation:
+\end{minipage}} & \begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+SEV
+\end{quote}
+\end{minipage} \\
+& & & & & & & & &
+\multicolumn{6}{>{\raggedright\arraybackslash}p{(\columnwidth - 44\tabcolsep) * \real{0.2609} + 10\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+operates
+\end{minipage}} &
+\multicolumn{5}{>{\raggedright\arraybackslash}p{(\columnwidth - 44\tabcolsep) * \real{0.2174} + 8\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+without
+\end{quote}
+\end{minipage}} &
+\multicolumn{3}{>{\raggedright\arraybackslash}p{(\columnwidth - 44\tabcolsep) * \real{0.1304} + 4\tabcolsep}@{}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+requiring
+\end{quote}
+\end{minipage}} \\
+& & & & & & & & &
+\multicolumn{14}{>{\raggedright\arraybackslash}p{(\columnwidth - 44\tabcolsep) * \real{0.6087} + 26\tabcolsep}@{}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+modifications to applications,
+\end{quote}
+\end{minipage}} \\
+\midrule()
+\endhead
+\bottomrule()
+\end{longtable}
+
+3
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.0625}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.0625}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.0625}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.0625}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.0625}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.0625}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.0625}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.0625}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.0625}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.0625}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.0625}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.0625}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.0625}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.0625}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.0625}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.0625}}@{}}
+\toprule()
+\multicolumn{11}{@{}>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.6875} + 20\tabcolsep}}{%
+\multirow{3}{*}{\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+making it easier to deploy in existing environments.
+
+●\hspace{0pt} Enhanced Isolation: By encrypting the memory, SEV provides
+strong isolation between VMs, enhancing security in shared environments.
+
+Advanced Extensions:
+\end{quote}
+\end{minipage}}} &
+\multicolumn{5}{>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.3125} + 8\tabcolsep}@{}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+system, including the operating system, hypervisor, and even cloud
+service providers.
+
+●\hspace{0pt} Integrity: Allowing only authorized code to execute within
+the TEE,
+\end{quote}
+\end{minipage}} \\
+& & & & & & & & & & &
+\multicolumn{2}{>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.1250} + 2\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+preventing
+\end{minipage}} &
+\multicolumn{3}{>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.1875} + 4\tabcolsep}@{}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+unauthorized
+\end{minipage}} \\
+& & & & & & & & & & &
+\multicolumn{5}{>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.3125} + 8\tabcolsep}@{}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+modifications.
+\end{quote}
+\end{minipage}} \\
+\midrule()
+\endhead
+\multicolumn{2}{@{}>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.1250} + 2\tabcolsep}}{%
+●\hspace{0pt} SEV-ES} &
+\multicolumn{6}{>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.3750} + 10\tabcolsep}}{%
+(Encrypted} &
+\multicolumn{3}{>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.1875} + 4\tabcolsep}}{%
+State):} &
+\multicolumn{2}{>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.1250} + 2\tabcolsep}}{%
+●\hspace{0pt} Confidentiality:} &
+\multicolumn{2}{>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.1250} + 2\tabcolsep}}{%
+\begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+Encrypting
+\end{quote}
+\end{minipage}} & \begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+data
+\end{quote}
+\end{minipage} \\
+\multicolumn{11}{@{}>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.6875} + 20\tabcolsep}}{%
+Extends SEV by encrypting the} &
+\multicolumn{5}{>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.3125} + 8\tabcolsep}@{}}{%
+\multirow{3}{*}{\begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+within the TEE, so that even if the system is compromised, the data
+remains secure.
+\end{quote}
+\end{minipage}}} \\
+CPU &
+\multicolumn{3}{>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.1875} + 4\tabcolsep}}{%
+\begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+register
+\end{quote}
+\end{minipage}} &
+\multicolumn{2}{>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.1250} + 2\tabcolsep}}{%
+state} &
+\multicolumn{2}{>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.1250} + 2\tabcolsep}}{%
+of} &
+\multicolumn{3}{>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.1875} + 4\tabcolsep}}{%
+\begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+VMs,
+\end{quote}
+\end{minipage}} \\
+\multicolumn{3}{@{}>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.1875} + 4\tabcolsep}}{%
+protecting} &
+\multicolumn{8}{>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.5000} + 14\tabcolsep}}{%
+\begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+against attacks that
+\end{quote}
+\end{minipage}} \\
+\multicolumn{11}{@{}>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.6875} + 20\tabcolsep}}{%
+\multirow{2}{*}{\begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+target CPU registers during context switches.
+
+●\hspace{0pt} SEV-SNP (Secure Nested Paging):
+\end{quote}
+\end{minipage}}} & Azure & \begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+implements
+\end{quote}
+\end{minipage} &
+\multicolumn{2}{>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.1250} + 2\tabcolsep}}{%
+TEEs} & \begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+using
+\end{quote}
+\end{minipage} \\
+& & & & & & & & & & &
+\multicolumn{5}{>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.3125} + 8\tabcolsep}@{}}{%
+\begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+technologies like Intel SGX and AMD SEV-SNP, enabling customers to run
+\end{quote}
+\end{minipage}} \\
+\multicolumn{2}{@{}>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.1250} + 2\tabcolsep}}{%
+Further} &
+\multicolumn{3}{>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.1875} + 4\tabcolsep}}{%
+enhances} &
+\multicolumn{5}{>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.3125} + 8\tabcolsep}}{%
+security} & \begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+by
+\end{quote}
+\end{minipage} & sensitive & \begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+workloads
+\end{quote}
+\end{minipage} & with &
+\multicolumn{2}{>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.1250} + 2\tabcolsep}@{}}{%
+\begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+enhanced
+\end{quote}
+\end{minipage}} \\
+\multicolumn{11}{@{}>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.6875} + 20\tabcolsep}}{%
+\begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+adding memory integrity protection, preventing malicious modifications
+to VM memory and defending against certain types of attacks from
+compromised hypervisors.
+
+By leveraging SEV and its extensions,
+\end{quote}
+\end{minipage}} &
+\multicolumn{5}{>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.3125} + 8\tabcolsep}@{}}{%
+\multirow{5}{*}{\begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+security. These TEEs support remote attestation, allowing verification
+that the code inside the TEE is trustworthy before processing sensitive
+data.
+
+\includegraphics[width=2.88611in,height=1.61389in]{vertopal_2383c425a5924ea2a45efcd3bd9389a7/media/image3.png}
+
+Real World Application
+
+Confidential AI and Machine Learning
+\end{quote}
+\end{minipage}}} \\
+\multicolumn{2}{@{}>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.1250} + 2\tabcolsep}}{%
+organizations} &
+\multicolumn{2}{>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.1250} + 2\tabcolsep}}{%
+can} &
+\multicolumn{4}{>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.2500} + 6\tabcolsep}}{%
+enhance} &
+\multicolumn{3}{>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.1875} + 4\tabcolsep}}{%
+the} \\
+\multicolumn{2}{@{}>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.1250} + 2\tabcolsep}}{%
+confidentiality} &
+\multicolumn{2}{>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.1250} + 2\tabcolsep}}{%
+\begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+and
+\end{quote}
+\end{minipage}} &
+\multicolumn{3}{>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.1875} + 4\tabcolsep}}{%
+\begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+integrity
+\end{quote}
+\end{minipage}} &
+\multicolumn{2}{>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.1250} + 2\tabcolsep}}{%
+of} &
+\multicolumn{2}{>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.1250} + 2\tabcolsep}}{%
+\begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+their
+\end{quote}
+\end{minipage}} \\
+workloads & in &
+\multicolumn{3}{>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.1875} + 4\tabcolsep}}{%
+\begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+virtualized
+\end{quote}
+\end{minipage}} &
+\multicolumn{3}{>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.1875} + 4\tabcolsep}}{%
+and} &
+\multicolumn{3}{>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.1875} + 4\tabcolsep}}{%
+\begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+cloud
+\end{quote}
+\end{minipage}} \\
+\multicolumn{11}{@{}>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.6875} + 20\tabcolsep}}{%
+\begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+environments, aligning with the principles of Confidential Computing.
+
+\includegraphics[width=2.88472in,height=1.51111in]{vertopal_2383c425a5924ea2a45efcd3bd9389a7/media/image4.png}
+\end{quote}
+\end{minipage}} \\
+\bottomrule()
+\end{longtable}
+
+Confidential Computing allows for the
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 16\tabcolsep) * \real{0.1111}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 16\tabcolsep) * \real{0.1111}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 16\tabcolsep) * \real{0.1111}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 16\tabcolsep) * \real{0.1111}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 16\tabcolsep) * \real{0.1111}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 16\tabcolsep) * \real{0.1111}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 16\tabcolsep) * \real{0.1111}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 16\tabcolsep) * \real{0.1111}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 16\tabcolsep) * \real{0.1111}}@{}}
+\toprule()
+\multicolumn{5}{@{}>{\raggedright\arraybackslash}p{(\columnwidth - 16\tabcolsep) * \real{0.5556} + 8\tabcolsep}}{%
+\multirow{5}{*}{\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+TEE on Cloud
+
+A TEE is a hardware-enforced, isolated area within a processor that
+ensures code and data loaded inside are protected with respect to
+confidentiality and integrity. In cloud computing, TEEs safeguard data
+in use by: {[}5{]}\\
+●\hspace{0pt} Isolation: Ensuring that data and
+\end{quote}\strut
+\end{minipage}}} &
+\multicolumn{4}{>{\raggedright\arraybackslash}p{(\columnwidth - 16\tabcolsep) * \real{0.4444} + 6\tabcolsep}@{}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+training and deployment of AI/ML models on sensitive data within Trusted
+Execution Environments (TEEs). This ensures that
+\end{quote}
+\end{minipage}} \\
+& & & & & \begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+proprietary
+\end{quote}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+algorithms
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+and
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+datasets
+\end{quote}
+\end{minipage} \\
+& & & & &
+\multicolumn{4}{>{\raggedright\arraybackslash}p{(\columnwidth - 16\tabcolsep) * \real{0.4444} + 6\tabcolsep}@{}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+remain protected during processing. {[}6{]}
+\end{quote}
+\end{minipage}} \\
+& & & & & \begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+Industries
+\end{quote}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+handling
+\end{minipage} &
+\multicolumn{2}{>{\raggedright\arraybackslash}p{(\columnwidth - 16\tabcolsep) * \real{0.2222} + 2\tabcolsep}@{}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+confidential
+\end{quote}
+\end{minipage}} \\
+& & & & &
+\multicolumn{4}{>{\raggedright\arraybackslash}p{(\columnwidth - 16\tabcolsep) * \real{0.4444} + 6\tabcolsep}@{}}{%
+\multirow{3}{*}{\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+information, such as healthcare and finance, can leverage this to
+maintain data privacy while harnessing AI capabilities.
+
+Privacy-Preserving Analytics
+\end{quote}
+\end{minipage}}} \\
+\begin{minipage}[b]{\linewidth}\raggedright
+code
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+within
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+the
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+TEE
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+are
+\end{quote}
+\end{minipage} \\
+\multicolumn{5}{@{}>{\raggedright\arraybackslash}p{(\columnwidth - 16\tabcolsep) * \real{0.5556} + 8\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+inaccessible to the rest of the
+\end{minipage}} \\
+\midrule()
+\endhead
+\bottomrule()
+\end{longtable}
+
+4
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.0625}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.0625}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.0625}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.0625}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.0625}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.0625}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.0625}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.0625}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.0625}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.0625}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.0625}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.0625}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.0625}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.0625}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.0625}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.0625}}@{}}
+\toprule()
+\begin{minipage}[b]{\linewidth}\raggedright
+With
+\end{minipage} &
+\multicolumn{3}{>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.1875} + 4\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+Confidential
+\end{quote}
+\end{minipage}} &
+\multicolumn{4}{>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.2500} + 6\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+Computing,
+\end{minipage}} &
+\multicolumn{8}{>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.5000} + 14\tabcolsep}@{}}{%
+\multirow{2}{*}{\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+Most major cloud platforms---such as Microsoft Azure, Google Cloud,
+\end{quote}
+\end{minipage}}} \\
+\multicolumn{8}{@{}>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.5000} + 14\tabcolsep}}{%
+\multirow{6}{*}{\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+organizations can perform analytics on encrypted data without decrypting
+it, maintaining data confidentiality. This is crucial for businesses
+that need to analyze sensitive information, like user behavior or
+financial transactions, while adhering to privacy regulations.
+
+Enhanced Data Protection in Healthcare
+\end{quote}
+\end{minipage}}} \\
+& & & & & & & & \begin{minipage}[b]{\linewidth}\raggedright
+and
+\end{minipage} &
+\multicolumn{5}{>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.3125} + 8\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+Amazon
+\end{quote}
+\end{minipage}} &
+\multicolumn{2}{>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.1250} + 2\tabcolsep}@{}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+Web
+\end{quote}
+\end{minipage}} \\
+& & & & & & & &
+\multicolumn{4}{>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.2500} + 6\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+Services---implement
+\end{quote}
+\end{minipage}} &
+\multicolumn{4}{>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.2500} + 6\tabcolsep}@{}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+Confidential
+\end{quote}
+\end{minipage}} \\
+& & & & & & & &
+\multicolumn{8}{>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.5000} + 14\tabcolsep}@{}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+Computing using TEEs that provide: ●\hspace{0pt} \textbf{Memory
+Encryption}: Keeps data encrypted while in use.
+
+●\hspace{0pt} \textbf{Hardware-Based Isolation}:
+\end{quote}
+\end{minipage}} \\
+& & & & & & & &
+\multicolumn{2}{>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.1250} + 2\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+Prevents
+\end{minipage}} &
+\multicolumn{4}{>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.2500} + 6\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+access
+\end{quote}
+\end{minipage}} &
+\multicolumn{2}{>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.1250} + 2\tabcolsep}@{}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+by
+\end{quote}
+\end{minipage}} \\
+& & & & & & & &
+\multicolumn{8}{>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.5000} + 14\tabcolsep}@{}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+hypervisors, OS, or cloud operators.
+\end{quote}
+\end{minipage}} \\
+\midrule()
+\endhead
+\multirow{2}{*}{Healthcare} &
+\multicolumn{3}{>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.1875} + 4\tabcolsep}}{%
+\multirow{2}{*}{providers}} &
+\multicolumn{2}{>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.1250} + 2\tabcolsep}}{%
+\multirow{2}{*}{can}} &
+\multicolumn{2}{>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.1250} + 2\tabcolsep}}{%
+\multirow{2}{*}{\begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+utilize
+\end{quote}
+\end{minipage}}} &
+\multicolumn{2}{>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.1250} + 2\tabcolsep}}{%
+●\hspace{0pt} \textbf{Remote}} &
+\multicolumn{6}{>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.3750} + 10\tabcolsep}@{}}{%
+\begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+\textbf{Attestation}:
+\end{quote}
+\end{minipage}} \\
+& & & & & & & &
+\multicolumn{8}{>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.5000} + 14\tabcolsep}@{}}{%
+\multirow{2}{*}{\begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+Verifies the integrity of the
+\end{quote}
+\end{minipage}}} \\
+\multicolumn{8}{@{}>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.5000} + 14\tabcolsep}}{%
+\multirow{5}{*}{\begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+Confidential Computing to process patient data securely, ensuring
+compliance with regulations like HIPAA. This enables secure sharing and
+analysis of medical
+\end{quote}
+\end{minipage}}} \\
+& & & & & & & &
+\multicolumn{3}{>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.1875} + 4\tabcolsep}}{%
+environment} &
+\multicolumn{3}{>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.1875} + 4\tabcolsep}}{%
+\begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+before
+\end{quote}
+\end{minipage}} &
+\multicolumn{2}{>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.1250} + 2\tabcolsep}@{}}{%
+\begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+code
+\end{quote}
+\end{minipage}} \\
+& & & & & & & &
+\multicolumn{8}{>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.5000} + 14\tabcolsep}@{}}{%
+\begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+execution.
+\end{quote}
+\end{minipage}} \\
+& & & & & & & &
+\multicolumn{2}{>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.1250} + 2\tabcolsep}}{%
+●\hspace{0pt} \textbf{Integration}} &
+\multicolumn{4}{>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.2500} + 6\tabcolsep}}{%
+\textbf{with}} &
+\multicolumn{2}{>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.1250} + 2\tabcolsep}@{}}{%
+\begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+\textbf{Cloud}
+\end{quote}
+\end{minipage}} \\
+& & & & & & & &
+\multicolumn{8}{>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.5000} + 14\tabcolsep}@{}}{%
+\multirow{5}{*}{\begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+\textbf{Services}: Supports secure deployment of containers, analytics,
+and AI workloads.
+
+●\hspace{0pt} \textbf{Support for GPUs}: Extends TEEs to GPU processing
+for
+\end{quote}
+\end{minipage}}} \\
+records, &
+\multicolumn{3}{>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.1875} + 4\tabcolsep}}{%
+\begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+facilitating
+\end{quote}
+\end{minipage}} &
+\multicolumn{2}{>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.1250} + 2\tabcolsep}}{%
+research} &
+\multicolumn{2}{>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.1250} + 2\tabcolsep}}{%
+and} \\
+improving &
+\multicolumn{3}{>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.1875} + 4\tabcolsep}}{%
+patient} & care &
+\multicolumn{3}{>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.1875} + 4\tabcolsep}}{%
+without} \\
+\multicolumn{8}{@{}>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.5000} + 14\tabcolsep}}{%
+\begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+compromising privacy.
+\end{quote}
+\end{minipage}} \\
+\multicolumn{3}{@{}>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.1875} + 4\tabcolsep}}{%
+\multirow{2}{*}{Strengthened}} &
+\multicolumn{5}{>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.3125} + 8\tabcolsep}}{%
+\multirow{2}{*}{\begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+Security for
+\end{quote}
+\end{minipage}}} \\
+& & & & & & & &
+\multicolumn{2}{>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.1250} + 2\tabcolsep}}{%
+machine} &
+\multicolumn{4}{>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.2500} + 6\tabcolsep}}{%
+learning} &
+\multicolumn{2}{>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.1250} + 2\tabcolsep}@{}}{%
+\begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+and
+\end{quote}
+\end{minipage}} \\
+\multicolumn{8}{@{}>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.5000} + 14\tabcolsep}}{%
+\begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+Financial Services\\
+Financial institutions can process sensitive transactions and customer
+data within TEEs, reducing the risk of data breaches.
+\end{quote}\strut
+\end{minipage}} &
+\multicolumn{8}{>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.5000} + 14\tabcolsep}@{}}{%
+\multirow{4}{*}{\begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+analytics.
+
+Microsoft Azure\\
+●\hspace{0pt} Offers \textbf{Confidential VMs} using AMD SEV-SNP and
+Intel TDX.
+\end{quote}
+
+●\hspace{0pt} Provides \textbf{virtual TPM}, \textbf{OS disk}\strut
+\end{minipage}}} \\
+\multicolumn{2}{@{}>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.1250} + 2\tabcolsep}}{%
+Confidential} &
+\multicolumn{3}{>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.1875} + 4\tabcolsep}}{%
+\begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+Computing
+\end{quote}
+\end{minipage}} &
+\multicolumn{2}{>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.1250} + 2\tabcolsep}}{%
+\begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+helps
+\end{quote}
+\end{minipage}} & \begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+in
+\end{quote}
+\end{minipage} \\
+\multicolumn{8}{@{}>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.5000} + 14\tabcolsep}}{%
+\begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+safeguarding against insider threats and
+\end{quote}
+\end{minipage}} \\
+\multirow{2}{*}{ensures} &
+\multicolumn{3}{>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.1875} + 4\tabcolsep}}{%
+\multirow{2}{*}{\begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+compliance
+\end{quote}
+\end{minipage}}} &
+\multirow{2}{*}{\begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+with
+\end{quote}
+\end{minipage}} &
+\multicolumn{3}{>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.1875} + 4\tabcolsep}}{%
+\multirow{2}{*}{stringent}} \\
+& & & & & & & &
+\multicolumn{2}{>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.1250} + 2\tabcolsep}}{%
+\multirow{2}{*}{\textbf{encryption},}} &
+\multicolumn{3}{>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.1875} + 4\tabcolsep}}{%
+\multirow{2}{*}{and}} &
+\multicolumn{2}{>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.1250} + 2\tabcolsep}}{%
+\multirow{2}{*}{multiple}} &
+\multirow{2}{*}{\begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+VM
+\end{quote}
+\end{minipage}} \\
+\multicolumn{8}{@{}>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.5000} + 14\tabcolsep}}{%
+\multirow{2}{*}{\begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+financial regulations.
+\end{quote}
+\end{minipage}}} \\
+& & & & & & & &
+\multicolumn{8}{>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.5000} + 14\tabcolsep}@{}}{%
+series (e.g., DCasv5, ECesv5).} \\
+\bottomrule()
+\end{longtable}
+
+●\hspace{0pt} Suitable for both general-purpose
+
+and GPU-heavy workloads {[}7{]}.\hspace{0pt}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 18\tabcolsep) * \real{0.1000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 18\tabcolsep) * \real{0.1000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 18\tabcolsep) * \real{0.1000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 18\tabcolsep) * \real{0.1000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 18\tabcolsep) * \real{0.1000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 18\tabcolsep) * \real{0.1000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 18\tabcolsep) * \real{0.1000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 18\tabcolsep) * \real{0.1000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 18\tabcolsep) * \real{0.1000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 18\tabcolsep) * \real{0.1000}}@{}}
+\toprule()
+\multicolumn{2}{@{}>{\raggedright\arraybackslash}p{(\columnwidth - 18\tabcolsep) * \real{0.2000} + 2\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+Cloud
+\end{minipage}} &
+\multicolumn{2}{>{\raggedright\arraybackslash}p{(\columnwidth - 18\tabcolsep) * \real{0.2000} + 2\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+Platforms
+\end{minipage}} &
+\multicolumn{6}{>{\raggedright\arraybackslash}p{(\columnwidth - 18\tabcolsep) * \real{0.6000} + 10\tabcolsep}@{}}{%
+\multirow{2}{*}{\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+Google Cloud
+\end{quote}
+\end{minipage}}} \\
+\multicolumn{4}{@{}>{\raggedright\arraybackslash}p{(\columnwidth - 18\tabcolsep) * \real{0.4000} + 6\tabcolsep}}{%
+\multirow{5}{*}{\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+Providing Confidential Computing Services
+
+Common Features Across Providers
+
+Before detailing each provider, mention
+\end{quote}
+\end{minipage}}} \\
+& & & & \begin{minipage}[b]{\linewidth}\raggedright
+●\hspace{0pt} Offers
+\end{minipage} &
+\multicolumn{2}{>{\raggedright\arraybackslash}p{(\columnwidth - 18\tabcolsep) * \real{0.2000} + 2\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Confidential}
+\end{minipage}} &
+\multicolumn{2}{>{\raggedright\arraybackslash}p{(\columnwidth - 18\tabcolsep) * \real{0.2000} + 2\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+\textbf{VMs}
+\end{minipage}} & \begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+with
+\end{quote}
+\end{minipage} \\
+& & & &
+\multicolumn{6}{>{\raggedright\arraybackslash}p{(\columnwidth - 18\tabcolsep) * \real{0.6000} + 10\tabcolsep}@{}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+integration into \textbf{Confidential GKE Nodes} and \textbf{Dataproc}.
+
+●\hspace{0pt} Unique offering of \textbf{Confidential AI support with
+NVIDIA H100 GPUs}.
+\end{quote}
+\end{minipage}} \\
+& & & & \begin{minipage}[b]{\linewidth}\raggedright
+●\hspace{0pt} Strong
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+use
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+cases
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+in
+\end{minipage} &
+\multicolumn{2}{>{\raggedright\arraybackslash}p{(\columnwidth - 18\tabcolsep) * \real{0.2000} + 2\tabcolsep}@{}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+\textbf{secure}
+\end{quote}
+\end{minipage}} \\
+& & & &
+\multicolumn{6}{>{\raggedright\arraybackslash}p{(\columnwidth - 18\tabcolsep) * \real{0.6000} + 10\tabcolsep}@{}}{%
+\multirow{2}{*}{\begin{minipage}[b]{\linewidth}\raggedright
+\textbf{multi-party data analytics} {[}8{]}.
+\end{minipage}}} \\
+\begin{minipage}[b]{\linewidth}\raggedright
+that
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+many
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Confidential
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+Computing
+\end{quote}
+\end{minipage} \\
+\midrule()
+\endhead
+\bottomrule()
+\end{longtable}
+
+\begin{quote}
+services share a common foundation:
+\end{quote}
+
+5
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5000}}@{}}
+\toprule()
+\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+Amazon Web Services (AWS)
+\end{quote}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+hardware, software, and expertise to implement effectively.
+\end{quote}
+\end{minipage} \\
+\midrule()
+\endhead
+\bottomrule()
+\end{longtable}
+
+Another limitation is its \textbf{limited}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.0625}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.0625}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.0625}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.0625}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.0625}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.0625}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.0625}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.0625}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.0625}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.0625}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.0625}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.0625}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.0625}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.0625}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.0625}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.0625}}@{}}
+\toprule()
+\multicolumn{3}{@{}>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.1875} + 4\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+●\hspace{0pt} Offers
+\end{minipage}} &
+\multicolumn{5}{>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.3125} + 8\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+\textbf{AWS}
+\end{minipage}} &
+\multicolumn{2}{>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.1250} + 2\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Nitro}
+\end{minipage}} &
+\multicolumn{5}{>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.3125} + 8\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+\textbf{Enclaves}
+\end{quote}
+\end{minipage}} &
+\multirow{15}{*}{\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+\textbf{adoption}---as the technology is still\\
+emerging, it may not be fully compatible with existing systems or widely
+supported across all platforms. Additionally, there is a \textbf{risk of
+misuse}; if not properly managed, the secure environments could be\\
+exploited to hide malicious activity,\\
+emphasizing the need for strong oversight and security controls.
+
+Conclusion
+
+In an era where data security and privacy are more critical than ever,
+\textbf{Confidential Computing} emerges as a groundbreaking solution for
+protecting data in its most\\
+vulnerable state---\textbf{while in use}. By\\
+leveraging \textbf{Trusted Execution}\\
+\textbf{Environments (TEEs)} and\\
+hardware-based isolation, it ensures that sensitive data remains
+encrypted and\\
+shielded even during processing. This\\
+innovation enables secure computing in untrusted environments,
+supports\\
+privacy-preserving collaboration, and\\
+helps organizations meet stringent\\
+\textbf{regulatory compliance} requirements.
+
+However, the adoption of Confidential Computing is not without
+challenges.
+
+Organizations must navigate\\
+\textbf{performance overhead}, \textbf{implementation complexity}, and
+the \textbf{need for}\\
+\textbf{specialized infrastructure}. Additionally, as the technology
+evolves, there must be careful consideration to prevent
+\textbf{potential misuse} and to ensure interoperability with existing
+systems.
+
+Despite these limitations, the benefits of enhanced security,
+\textbf{intellectual property protection}, and \textbf{data privacy
+assurance} make Confidential Computing a vital tool in the modern cloud
+computing landscape.
+\end{quote}\strut
+\end{minipage}} \\
+\multicolumn{15}{@{}>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.9375} + 28\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+instead of full Confidential VMs.
+
+\begin{quote}
+●\hspace{0pt} Focused on isolating and securely processing highly
+sensitive data without network access {[}9{]}.
+
+Pros and Cons
+
+Advantages
+
+Confidential Computing offers significant advantages in securing
+sensitive data during processing. It ensures \textbf{enhanced}
+\end{quote}
+\end{minipage}} \\
+\begin{minipage}[b]{\linewidth}\raggedright
+\textbf{data}
+\end{minipage} &
+\multicolumn{5}{>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.3125} + 8\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+\textbf{protection}
+\end{minipage}} &
+\multicolumn{3}{>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.1875} + 4\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+by
+\end{minipage}} &
+\multicolumn{4}{>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.2500} + 6\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+keeping
+\end{quote}
+\end{minipage}} &
+\multicolumn{2}{>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.1250} + 2\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+data
+\end{quote}
+\end{minipage}} \\
+\multicolumn{15}{@{}>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.9375} + 28\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+encrypted even while in use, thereby reducing the risk of breaches. It
+also delivers strong \textbf{privacy assurance}, as data is processed
+within secure, isolated
+\end{quote}
+\end{minipage}} \\
+\multicolumn{4}{@{}>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.2500} + 6\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+environments,
+\end{minipage}} &
+\multicolumn{7}{>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.4375} + 12\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+safeguarding
+\end{minipage}} &
+\multicolumn{2}{>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.1250} + 2\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+it
+\end{quote}
+\end{minipage}} &
+\multicolumn{2}{>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.1250} + 2\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+from
+\end{quote}
+\end{minipage}} \\
+\multicolumn{15}{@{}>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.9375} + 28\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+unauthorized access --- even in \textbf{untrusted}
+\end{quote}
+\end{minipage}} \\
+\multicolumn{5}{@{}>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.3125} + 8\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+\textbf{infrastructures}
+\end{minipage}} &
+\multicolumn{3}{>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.1875} + 4\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+like
+\end{minipage}} &
+\multicolumn{2}{>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.1250} + 2\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+public
+\end{minipage}} &
+\multicolumn{4}{>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.2500} + 6\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+cloud
+\end{quote}
+\end{minipage}} & \begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+or
+\end{quote}
+\end{minipage} \\
+\multicolumn{15}{@{}>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.9375} + 28\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+third-party servers.
+
+Additionally, it helps protect \textbf{intellectual property}, allowing
+organizations to run
+\end{quote}
+\end{minipage}} \\
+\multicolumn{3}{@{}>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.1875} + 4\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+proprietary
+\end{minipage}} &
+\multicolumn{6}{>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.3750} + 10\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+algorithms
+\end{minipage}} &
+\multicolumn{3}{>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.1875} + 4\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+and
+\end{minipage}} &
+\multicolumn{3}{>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.1875} + 4\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+handle
+\end{quote}
+\end{minipage}} \\
+\multicolumn{15}{@{}>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.9375} + 28\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+confidential data without exposing code or
+\end{quote}
+\end{minipage}} \\
+\begin{minipage}[b]{\linewidth}\raggedright
+logic.
+\end{minipage} &
+\multicolumn{3}{>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.1875} + 4\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+Finally,
+\end{minipage}} &
+\multicolumn{6}{>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.3750} + 10\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+Confidential
+\end{minipage}} &
+\multicolumn{5}{>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.3125} + 8\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+Computing
+\end{quote}
+\end{minipage}} \\
+\multicolumn{2}{@{}>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.1250} + 2\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+supports
+\end{minipage}} &
+\multicolumn{6}{>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.3750} + 10\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+\textbf{regulatory}
+\end{minipage}} &
+\multicolumn{5}{>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.3125} + 8\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+\textbf{compliance}
+\end{quote}
+\end{minipage}} &
+\multicolumn{2}{>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.1250} + 2\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+by
+\end{minipage}} \\
+\multicolumn{15}{@{}>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.9375} + 28\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+providing a secure processing framework
+\end{quote}
+\end{minipage}} \\
+\begin{minipage}[b]{\linewidth}\raggedright
+that
+\end{minipage} &
+\multicolumn{2}{>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.1250} + 2\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+aligns
+\end{quote}
+\end{minipage}} &
+\multicolumn{4}{>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.2500} + 6\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+with
+\end{minipage}} &
+\multicolumn{3}{>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.1875} + 4\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+privacy
+\end{minipage}} &
+\multicolumn{3}{>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.1875} + 4\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+and
+\end{minipage}} &
+\multicolumn{2}{>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.1250} + 2\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+data
+\end{quote}
+\end{minipage}} \\
+\multicolumn{15}{@{}>{\raggedright\arraybackslash}p{(\columnwidth - 30\tabcolsep) * \real{0.9375} + 28\tabcolsep}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+protection laws.
+
+Disadvantages
+
+Despite its security benefits, Confidential Computing comes with
+several\\
+challenges. It may introduce \textbf{performance overhead} due to the
+additional processing required for encryption and isolation,\\
+potentially slowing down applications. The technology also adds
+\textbf{complexity and cost}, as it often requires specialized
+\end{quote}\strut
+\end{minipage}} \\
+\midrule()
+\endhead
+\bottomrule()
+\end{longtable}
+
+6
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5000}}@{}}
+\toprule()
+\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+As adoption increases and technology\\
+matures, it is poised to become a standard for secure computing across
+industries.
+
+References
+
+1.\hspace{0pt} Confidential Computing\\
+Consortium (2022) \emph{CCC Outreach White Paper} (Updated November
+2022). Available at:\\
+\strut \\
+(Accessed: 18 May 2025).\hspace{0pt}
+
+2.\hspace{0pt} Intel Corporation (n.d.) \emph{Intel®}\\
+\emph{Software Guard Extensions SDK for Linux OS}. Available at:\\
+(Accessed: 18 May 2025).\hspace{0pt}
+
+3.\hspace{0pt} Arm Ltd. (n.d.) \emph{Arm TrustZone for} \emph{Cortex-A}.
+Available at:
+\end{quote}\strut
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+(Accessed: 17 May 2025).\hspace{0pt}
+
+7.\hspace{0pt} Microsoft (n.d.) \emph{Azure Confidential} \emph{Virtual
+Machines Overview}.
+
+Available at:\\
+(Accessed: 17 May 2025).\hspace{0pt}
+
+8.\hspace{0pt} Google Cloud (n.d.) \emph{Confidential} \emph{Virtual
+Machines Overview}.
+
+Available at:\\
+\strut \\
+(Accessed: 17 May 2025).\hspace{0pt}
+
+9.\hspace{0pt} Amazon Web Services (n.d.) \emph{AWS Confidential
+Computing}. Available at:\\
+(Accessed: 17 May 2025).\hspace{0pt}
+\end{quote}\strut
+\end{minipage} \\
+\midrule()
+\endhead
+\bottomrule()
+\end{longtable}
+
+\begin{quote}
+(Accessed:\\
+18 May 2025).\hspace{0pt}
+
+4.\hspace{0pt} AMD (n.d.) \emph{Secure Encrypted}\\
+\emph{Virtualization (SEV)}. Available at:\\
+\strut \\
+(Accessed: 17 May\\
+2025).\hspace{0pt}
+
+5.\hspace{0pt} Microsoft (n.d.) \emph{Trusted Execution}\\
+\emph{Environment in Azure Confidential}\\
+\emph{Computing}. Available at:\\
+\strut \\
+\strut \\
+\strut \\
+(Accessed: 17 May 2025).\hspace{0pt}
+
+6.\hspace{0pt} Google Cloud (n.d.) \emph{Confidential}\\
+\emph{Computing for Analytics and AI}.
+
+Available at:
+\end{quote}
+
+7
+
+\end{document}
